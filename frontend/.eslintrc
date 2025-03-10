@@ -1,14 +1,35 @@
 {
-  "extends": "airbnb",
-  "rules": {
-    "consistent-return": [1],
-    "strict": [0],
-    "max-len": ["warn", 200],
-    "no-underscore-dangle": [1],
-    "no-console": "off",
-    "react/jsx-props-no-spreading": "off"
-  },
   "env": {
-    "browser": true
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "jsx-a11y", "react-hooks"],
+  "rules": {
+    "react/jsx-indent": ["error", 2], // Indentation de 2 espaces
+    "react/jsx-closing-tag-location": "error", // Fermeture des balises alignées
+    "no-multiple-empty-lines": ["error", { "max": 1 }], // Maximum 1 ligne vide
+    "no-alert": "off", // Désactiver l'avertissement pour `alert`
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ]
   }
 }

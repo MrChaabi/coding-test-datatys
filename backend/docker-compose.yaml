@@ -1,29 +1,51 @@
-# docker-compose.yml
-version: "3"
+version: "3.8"
+
 services:
   backend:
     container_name: backend
     build: .
     depends_on:
-      - database
+      database:
+        condition: service_healthy
+    env_file:
+      - .env
     environment:
       PG_HOST: database
+      PG_USER: app_user
+      PG_PASSWORD: coding_test_password
+      PG_DATABASE: datatys_db
+      PG_PORT: 5432
+      PEPPER: your_secure_pepper_here
     volumes:
-      - .:/app/
-    working_dir: /app
-    command: npm run start
+      - .:/app
+      - ./uploads:/app/uploads
     ports:
       - "3002:3002"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   database:
     container_name: database
-    image: timescale/timescaledb-postgis:latest-pg12
-    ports:
-      - "5432:5432"
+    image: postgres:13
     environment:
       POSTGRES_USER: app_user
       POSTGRES_PASSWORD: coding_test_password
       POSTGRES_DB: datatys_db
+    ports:
+      - "5432:5432"
     volumes:
+      - postgres_data:/var/lib/postgresql/data
       - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./sql/insert.sql:/docker-entrypoint-initdb.d/2-insert.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app_user -d datatys_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  uploads:

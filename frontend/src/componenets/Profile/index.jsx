@@ -6,8 +6,7 @@ function Profile({ user }) {
     <div>
       <h1>Profile Component</h1>
       <h2>
-        email:
-        {user.email}
+        email: {user.email}
       </h2>
     </div>
   );
@@ -16,6 +15,7 @@ function Profile({ user }) {
 Profile.propTypes = {
   user: PropTypes.objectOf(PropTypes.any),
 };
+
 Profile.defaultProps = {
   user: { email: 'undefined@' },
 };

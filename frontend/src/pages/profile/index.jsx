@@ -1,12 +1,24 @@
 import React from 'react';
-import Profile from '../../componenets/Profile';
+import UserForm from '../../componenets/UserForm.jsx';
+import Profile from '../../componenets/Profile/index';
+import '../../App.css'; // Chemin corrigé
 
-function ProfilePage() {
+const ProfilePage = () => {
+  const [user, setUser] = React.useState(null);
+
+  const handleUserCreated = (newUser) => {
+    setUser(newUser);
+  };
+
   return (
     <div className="container">
-      <Profile />
+      {user ? (
+        <Profile user={user} />
+      ) : (
+        <UserForm onUserCreated={handleUserCreated} />
+      )}
     </div>
   );
-}
+};
 
 export default ProfilePage;

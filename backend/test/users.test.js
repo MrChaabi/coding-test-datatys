@@ -3,7 +3,7 @@ require('dotenv').config();
 const chai = require('chai');
 const sinon = require('sinon');
 
-const user = require('../services/user');
+const user = require('../services/user.js');
 const db = require('../sql/db');
 
 const { expect } = chai;

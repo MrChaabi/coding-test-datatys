@@ -1,0 +1,95 @@
+.user-form-container {
+    min-height: 100vh;
+    background-color: #f9fafb; /* Couleur de fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .user-form {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 42rem;
+  }
+  
+  .user-form h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #153376; /* Couleur principale */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .user-form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #153376; /* Couleur principale */
+    margin-bottom: 0.5rem;
+  }
+  
+  .user-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db; /* Couleur de bordure */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .user-form input:focus {
+    outline: none;
+    border-color: #4DAF5C; /* Couleur d'accent */
+    box-shadow: 0 0 0 2px rgba(77, 175, 92, 0.2);
+  }
+  
+  .user-form .error-message {
+    color: #ef4444; /* Couleur d'erreur */
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .user-form .dropzone {
+    border: 2px dashed #153376; /* Couleur principale */
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  
+  .user-form .dropzone:hover {
+    border-color: #4DAF5C; /* Couleur d'accent */
+  }
+  
+  .user-form .dropzone p {
+    color: #153376; /* Couleur principale */
+  }
+  
+  .user-form .dropzone .file-selected {
+    color: #4DAF5C; /* Couleur d'accent */
+    margin-top: 0.5rem;
+  }
+  
+  .user-form button {
+    width: 100%;
+    background-color: #153376; /* Couleur principale */
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .user-form button:hover {
+    background-color: #4DAF5C; /* Couleur d'accent */
+  }
+  
+  .user-form button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(77, 175, 92, 0.2);
+  }
